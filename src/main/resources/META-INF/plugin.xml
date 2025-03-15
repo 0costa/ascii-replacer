@@ -1,0 +1,43 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.devkelvin.ascii-replacer</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Ascii-replacer</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@nonsupported.com" url="#">personalProject</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <p>This plugin automatically replaces special characters with their HTML ASCII codes in IntelliJ IDEA.</p>
+    <p><strong>Main Features:</strong></p>
+    <ul>
+        <li>Automatic replacement of special characters with HTML ASCII codes as the user types.</li>
+        <li>Allows users to select text and manually replace special characters.</li>
+    </ul>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.devkelvin.asciireplacer.AsciiReplacer"/>
+    </extensions>
+
+    <actions>
+        <action id="com.devkelvin.asciireplacer.actions.ReplaceCharacterAction"
+                class="com.devkelvin.asciireplacer.actions.ReplaceCharacterAction"
+                text="Formatar Para ASCII HTML Code"
+                description="Substitui caracteres por ASCII html code">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
