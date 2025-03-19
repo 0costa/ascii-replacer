@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.devkelvin"
-version = "1.1.1"
+version = "1.1.2"
 
 repositories {
     mavenCentral()
@@ -32,7 +32,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("242.*")
+        untilBuild.set("999.*")
     }
 
     signPlugin {
