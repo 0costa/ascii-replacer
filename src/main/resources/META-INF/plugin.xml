@@ -30,6 +30,9 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <postStartupActivity implementation="com.devkelvin.asciireplacer.AsciiReplacer"/>
+        <applicationConfigurable displayName="Ascii-replacer configuração"
+                                 id="com.devkelvin.asciireplacer.settings.AutoReplaceConfigurable"
+                                 instance="com.devkelvin.asciireplacer.settings.AutoReplaceConfigurable"/>
     </extensions>
 
     <actions>

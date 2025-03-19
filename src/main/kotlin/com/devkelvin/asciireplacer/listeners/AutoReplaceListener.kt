@@ -1,5 +1,6 @@
 package com.devkelvin.asciireplacer.listeners
 
+import com.devkelvin.asciireplacer.settings.AutoReplaceSettings
 import com.intellij.openapi.editor.event.DocumentEvent
 import com.intellij.openapi.editor.event.DocumentListener
 import com.intellij.openapi.project.Project
@@ -18,6 +19,12 @@ class AutoReplaceListener(val project: Project): DocumentListener {
     }
 
     override fun documentChanged(event: DocumentEvent) {
+        val settings = AutoReplaceSettings.getInstance()
+
+        if(!settings.state.autoReplaceEnabled){
+            return
+        }
+
         if (!isVmFile(event)) return
 
         val document = event.document
